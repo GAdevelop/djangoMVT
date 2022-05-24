@@ -7,6 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    <p>{{ datos }}</p>
+    <center>
+        <table class="default" border="2">
+            <tr>
+                <th>Nombre</th>
+                <th>DNI</th>
+                <th>Fecha de registro</th>
+            </tr>
+            {% for x in datos %}
+            <tr>
+                <td>{{x.nombre}}</td>
+                <td>{{x.dni}}</td>
+                <td>{{x.fecha_registro}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
 </body>
 </html>
