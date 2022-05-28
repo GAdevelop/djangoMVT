@@ -55,7 +55,7 @@ ROOT_URLCONF = 'MVT_GastonAmbrogi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["C:/Users/Gaston/Desktop/cursoPython/djangoMVT/repo_django/MVT_GastonAmbrogi/usuarios/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

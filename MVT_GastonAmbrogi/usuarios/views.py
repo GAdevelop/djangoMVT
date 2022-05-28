@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from usuarios.models import Familia
+from usuarios.models import *
 from django.http import HttpResponse
+from django.template import loader
 import datetime
 # Create your views here.
 
@@ -30,3 +31,8 @@ def alta_familia(request):
     familiar.save()
 
     return HttpResponse("Todo ok.")
+
+
+#def lista_profesores(request):
+
+    
