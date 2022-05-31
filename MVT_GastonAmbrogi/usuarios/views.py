@@ -1,3 +1,4 @@
+from re import A
 from django.shortcuts import render
 from usuarios.models import *
 from django.http import HttpResponse
@@ -20,7 +21,7 @@ def lista_familia(request):
     return render(request, "lista_familiares.html", datos) # se crea un html con esos datos y se rederiza para ser mostrado
 
 
-
+#esta es una manera de crear data en la lista de la BD
 def alta_familia(request):
     
     familiar = Familia(nombre = "Marcos Rodriguez", dni=42969111, fecha_registro=datetime.datetime(2021,5,10))
@@ -33,6 +34,50 @@ def alta_familia(request):
     return HttpResponse("Todo ok.")
 
 
-#def lista_profesores(request):
 
+
+""" def estudiantes(request):
+    estudiantes = Estudiantes.objects.all()
+    diccionario = {"Estudiantes" : {estudiantes}}
+    plantilla = loader.get_template("estudiantes.html")
+    documento = plantilla.render(diccionario)
+    return render(request, documento) """
+
+
+""" def lista_estudiantes(request, nombre, apellido):
+    lista = Estudiantes(nombre=nombre, apellido=apellido)
+    lista.save()
+    return render(request) """
+
+def estudiantes(request):
+
+    alumnos = Estudiantes.objects.all()
+    datos = {"datos" : alumnos}
+
+    return render(request, "estudiantes.html", datos)
+
+
+def lista_estudiantes(request):
     
+    alumno = Estudiantes(nombre = "Martina", apellido="Gutierrez", email="martugutierrez@gmail.com")
+    alumno.save()
+    alumno = Estudiantes(nombre = "Juan", apellido="Navarro", email="juan.navarro@hotmail.com")
+    alumno.save()
+    alumno = Estudiantes(nombre = "Bautista", apellido="Copper", email="bautistacopper@yahoo.com.ar")
+    alumno.save()
+
+    return HttpResponse(request)
+
+
+
+
+
+def contacto(request):
+    
+    return render(request , "contacto.html")
+
+
+
+def profesores(request):
+    
+    return render(request , "profesores.html")
