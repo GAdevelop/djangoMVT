@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+
+{% block contenido %}
+    <form action="formulario_estudiantes" method="POST">
+        {% csrf_token %}
+        <p>Nombre:</p>
+        <input type="text" name="nombre" required>
+        <p>Apellido:</p>
+        <input type="text" name="apellido" required>
+        <p>Email:</p>
+        <input type="email" name="email" required>
+
+        <input type="submit" value="Enviar">
+
+
+    </form>
+
+
+
+{% endblock %}

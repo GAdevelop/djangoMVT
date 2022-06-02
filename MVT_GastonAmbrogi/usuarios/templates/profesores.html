@@ -6,5 +6,28 @@
 {% block contenido %}
 
 
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Email</th>
+            <th scope="col">Profesion</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in datos %}
+        <tr>
+            <th scope="row">{{p.id}}</th>
+            <td>{{p.nombre}}</td>
+            <td>{{p.apellido}}</td>
+            <td>{{p.email}}</td>
+            <td>{{p.profesion}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
 
 {% endblock %}

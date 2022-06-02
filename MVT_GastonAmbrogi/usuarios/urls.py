@@ -10,5 +10,11 @@ urlpatterns = [
     path("profesores", views.profesores, name="profesores"),
     path("familia", views.lista_familia),
     #path("contacto", views.contacto),
-    path("alta_familiares", views.alta_familia)
+    path("alta_familiares", views.alta_familia),
+    path("formulario_profesores", views.formulario_profes),
+    path("formulario_estudiantes", views.formulario_est),
+    path("buscar_estudiantes", views.buscar_est),
+    path("buscar", views.buscar),
+    path("materias", views.materias, name="materias"),
+    path("formulario_materias", views.formulario_mat)
 ]

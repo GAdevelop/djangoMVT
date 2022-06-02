@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+
+{% block contenido %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Camada</th>
+            <th scope="col">Fecha de inicio</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for m in datos %}
+        <tr>
+            <th scope="row">{{m.id}}</th>
+            <td>{{m.nombre}}</td>
+            <td>{{m.camada}}</td>
+            <td>{{m.fecha_de_inicio}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+{% endblock %}

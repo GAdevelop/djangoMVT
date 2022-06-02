@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+
+{% block contenido %}
+    <form action="formulario_materias" method="POST">
+        {% csrf_token %}
+        <p>Nombre:</p>
+        <input type="text" name="nombre" required>
+        <p>Camada:</p>
+        <input type="integer" name="camada" required>
+        <p>Fecha de inicio:</p>
+        <input type="date" name="fecha_de_inicio" required>
+
+        <input type="submit" value="Enviar">
+
+
+    </form>
+
+
+
+{% endblock %}

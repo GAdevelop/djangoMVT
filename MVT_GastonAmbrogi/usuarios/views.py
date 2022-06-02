@@ -3,6 +3,7 @@ from django.shortcuts import render
 from usuarios.models import *
 from django.http import HttpResponse
 from django.template import loader
+from usuarios.forms import *
 import datetime
 # Create your views here.
 
@@ -79,5 +80,83 @@ def contacto(request):
 
 
 def profesores(request):
+    profesores = Profesores.objects.all()
+    datos = {"datos" : profesores}
+
+    return render(request, "profesores.html", datos)
+
+
+
+
+def formulario_est(request):
     
-    return render(request , "profesores.html")
+    if request.method == "POST":
+        
+        mi_formulario = Formulario_estudiantes(request.POST)
+
+        if mi_formulario.is_valid():
+            datos = mi_formulario.cleaned_data
+
+            estudiantes = Estudiantes(nombre=datos['nombre'] , apellido=datos['apellido'] , email=datos['email'])
+            estudiantes.save()
+
+            return render(request , "formulario_est.html")
+
+    return render(request , "formulario_est.html")
+
+
+
+def buscar_est(request):
+    return render(request, "buscar_estudiantes.html")
+
+
+def buscar(request):
+    
+    if request.GET['nombre']:
+        nombre = request.GET['nombre']
+        estudiantes = Estudiantes.objects.filter(nombre__icontains = nombre)
+        return render( request, "resultado_busqueda.html" , {"estudiantes" : estudiantes} )
+    else:
+        return HttpResponse("Campo vacío")
+    return HttpResponse(f"Se busca al estudiante: { request.GET['nombre']}")
+
+
+
+def formulario_profes(request):
+    
+    if request.method == "POST":
+        
+        mi_formulario = Formulario_profesores(request.POST)
+
+        if mi_formulario.is_valid():
+            datos = mi_formulario.cleaned_data
+
+            profesores = Profesores(nombre=datos['nombre'], apellido=datos['apellido'], email=datos['email'], profesion=datos['profesion'])
+            profesores.save()
+            return render(request, "formulario_profes.html")
+
+    return render(request, "formulario_profes.html")
+
+
+
+def materias(request):
+    materias = Materias.objects.all()
+    datos = {"datos" : materias}
+
+    return render(request, "materias.html", datos)
+
+
+def formulario_mat(request):
+    
+    if request.method == "POST":
+        
+        mi_formulario = Formulario_materias(request.POST)
+
+        if mi_formulario.is_valid():
+            datos = mi_formulario.cleaned_data
+
+            materias = Materias(nombre=datos['nombre'], camada=datos['camada'], fecha_de_inicio=datos['fecha_de_inicio'])
+            materias.save()
+            return render(request, "formulario_mat.html")
+
+    return render(request, "formulario_mat.html")
