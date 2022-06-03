@@ -21,6 +21,7 @@ Desde aqui podremos ingresar los tres parámetros requeridos obligatoriamente pa
 Una vez hecho esto podemos chequear que la información haya sido ingresada, apretando nuevamente el titulo de "Estudiantes" en el encabezado.
 
 
-Finalmente nos movemos al último URL para poder buscar información sobre dicha tabla pasando cualquiera de los tres parámetros previamente requeridos:  http://127.0.0.1:8000/usuarios/buscar_estudiantes
+Finalmente nos movemos al último URL para poder buscar información sobre dicha tabla pasando cualquiera de los tres parámetros previamente requeridos: http://127.0.0.1:8000/usuarios/buscar_estudiantes
 
 
+EXTRA: Podremos ingresar al URL link http://127.0.0.1:8000/admin/login e ingresar como usuario con permisos, usando la siguiente información...   Usuario: admin    Contraseña: codercoder
